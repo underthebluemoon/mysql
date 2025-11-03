@@ -36,19 +36,11 @@ INSERT INTO salaries (
 	emp_id
 	,salary
 	,start_at
-	,end_at
-	,created_at
-	,updated_at
-	,deleted_at
 )
 VALUE (
 	100005
 	,'1'
 	,NOW()
-	,NULL 
-	,NOW()
-	,NOW()
-	,NULL 
 );
 
 SELECT *
