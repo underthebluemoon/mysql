@@ -49,7 +49,7 @@ WHERE
 	emp_id = 100005
 ;
 
--- SELECT INSET
+-- SELECT INSERT
 INSERT INTO salaries (
 	emp_id
 	, salary

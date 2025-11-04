@@ -1,4 +1,6 @@
 -- subQuery
+-- join문에 비해 상대적으로 사용빈도는 낮지만(성능이슈)
+-- 간단한 정보를 가져올 땐, join보다 가볍게 사용가능
 
 -- ----------------------
 --   WHERE절에서 사용
@@ -102,4 +104,70 @@ WHERE
 		WHERE 
 			department_managers.emp_id = employees.emp_id
 	)
+;
+
+
+-- ----------------------
+--   SELECT절에서 사용
+-- ----------------------
+-- 성능이슈로 사용빈도 낮음
+
+-- 사원별 역대 전체 급여 평균
+SELECT
+	emp.emp_id
+	, (
+		SELECT AVG(sal.salary)
+		FROM salaries sal
+		WHERE emp_id = sal.emp_id
+	) avg_sal
+FROM employees emp
+;
+
+
+-- ----------------------
+--   FROM절에서 사용
+-- ----------------------
+-- from절에 임시테이블을 생성 (본 테이블이 너무 무거울 경우)
+
+SELECT
+	tmp.*
+FROM (
+	SELECT
+		emp.emp_id
+		, emp.`name`
+	FROM employees emp
+) tmp
+;
+
+
+-- ----------------------
+--   INSERT문에서 사용
+-- ----------------------
+
+INSERT INTO title_emps(
+	emp_id
+	,title_code
+	,start_at
+)
+VALUES(
+	(SELECT MAX(emp_id) FROM employees)
+	,(SELECT title_code FROM titles WHERE title = '사원')
+	,DATE(NOW())
+)
+;
+
+-- ----------------------
+--   UPDATE문에서 사용
+-- ----------------------
+
+UPDATE title_emps title1
+SET
+	title1.end_at = (
+		SELECT emp.fire_at
+		FROM employees emp
+		WHERE emp.emp_id = 100000
+	)
+WHERE
+	title1.emp_id = 100000
+	AND title1.end_at IS NULL
 ;

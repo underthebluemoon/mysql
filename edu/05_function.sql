@@ -84,7 +84,7 @@ SELECT LEFT('abcdef', 2);
 -- 아래 경우, 'ef' 반환
 SELECT RIGHT('abcdef', 2);
 
--- UPPERT(문자열), LOWER(문자열)
+-- UPPER(문자열), LOWER(문자열)
 -- 영어 대/소문자로 변환
 SELECT UPPER('AbCde'), LOWER('AbCde');
 
@@ -138,7 +138,7 @@ SELECT TRUNCATE(3.141592, 2);
 --   날짜 및 시간 함수
 -- ---------------------
 -- NOW()
--- 현재 날짜 빛 시간을 반환 (YYYY-MM-DD HH:mm:ss)
+-- 현재 날짜 및 시간을 반환 (YYYY-MM-DD HH:mm:ss)
 SELECT NOW();
 
 -- DATE(데이트 타입의 값)

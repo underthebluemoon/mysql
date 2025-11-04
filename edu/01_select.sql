@@ -74,7 +74,7 @@ WHERE
 	AND birth >= '1990-01-01'
 ;
 
--- between 연산자 : 지정한 범위 내에 데이터를조회
+-- between 연산자 : 지정한 범위 내에 데이터를 조회
 SELECT *
 FROM employees
 WHERE
@@ -239,7 +239,7 @@ ORDER BY salary DESC
 LIMIT 5
 ;
 
--- SEELECT문 기본 구조
+-- SELECT문 기본 구조
 -- SELECT [DISTINCT] 컬럼명
 -- FROM [테이블명]
 -- WHERE [쿼리 조건]

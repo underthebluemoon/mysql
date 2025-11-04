@@ -1,4 +1,4 @@
--- UPDATE 문 : 기존 데이터베이터를 수정
+-- UPDATE 문 : 기존 데이터를 수정
 
 UPDATE employees
 SET
